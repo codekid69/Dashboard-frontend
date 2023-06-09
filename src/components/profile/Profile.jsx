@@ -23,7 +23,7 @@ const Profile=()=>{
             setAdding(false);
             return;
         }
-        const reponse=await fetch(` http://localhost:5000/profile/${userId}`,{
+        const reponse=await fetch(` https://dashboardapi.onrender.com/profile/${userId}`,{
             method:'PUT',
             body:JSON.stringify({name,email,business}),
             headers:{

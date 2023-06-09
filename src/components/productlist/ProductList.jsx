@@ -18,7 +18,7 @@ const ProductList = () => {
     };
 
     const deleteProduct = async (id) => {
-        let response = await fetch(` https://dashboardapi.onrender.com/product/${id}`, {
+        let response = await fetch(`https://dashboardapi.onrender.com/product/${id}`, {
             method: "DELETE",
         });
         let data = await response.json();
