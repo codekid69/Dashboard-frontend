@@ -11,14 +11,14 @@ const ProductList = () => {
     }, []);
 
     const fetchProduct = async () => {
-        let response = await fetch(` http://localhost:5000/products`);
+        let response = await fetch(` https://dashboardapi.onrender.com/products`);
         let data = await response.json();
         // console.log("dataa", data);
         setProduct(data);
     };
 
     const deleteProduct = async (id) => {
-        let response = await fetch(` http://localhost:5000/product/${id}`, {
+        let response = await fetch(` https://dashboardapi.onrender.com/product/${id}`, {
             method: "DELETE",
         });
         let data = await response.json();
@@ -32,7 +32,7 @@ const ProductList = () => {
         let key = e.target.value;
         if(key){
             setLoading(true);
-            let result = await fetch(` http://localhost:5000/search/${key}`);
+            let result = await fetch(` https://dashboardapi.onrender.com/search/${key}`);
             result = await result.json();
             setLoading(false);
             if (result) {

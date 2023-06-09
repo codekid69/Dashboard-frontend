@@ -12,7 +12,7 @@ const Update=()=>{
          getProductDetails();
     },[])
     const getProductDetails=async ()=>{
-       let response=await fetch(`http://localhost:5000/product/${params.id}`)
+       let response=await fetch(`https://dashboardapi.onrender.com/product/${params.id}`)
        let data=await response.json();
        setName(data.name);
        setPrice(data.price);
@@ -32,7 +32,7 @@ const Update=()=>{
             setAdding(false);
             return;
         }
-        const reponse=await fetch(` http://localhost:5000/product/${params.id}`,{
+        const reponse=await fetch(` https://dashboardapi.onrender.com/product/${params.id}`,{
             method:'PUT',
             body:JSON.stringify({name,price,category,subcategory:subCategory}),
             headers:{

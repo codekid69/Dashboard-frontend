@@ -19,7 +19,7 @@ const Product=()=>{
             return;
         }
         const userId=JSON.parse(localStorage.getItem('user')).id;
-        let response=await fetch(` http://localhost:5000/add-product`,{
+        let response=await fetch(` https://dashboardapi.onrender.com/add-product`,{
             method:'POST',
             body:JSON.stringify({name,price,category,subcategory:subCategory,userId}),
             headers: {

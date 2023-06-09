@@ -40,7 +40,7 @@ const Signup = () => {
             setSignup(false);
             return;
         }
-        const result = await fetch(`http://localhost:5000/signup`, {
+        const result = await fetch(`https://dashboardapi.onrender.com/signup`, {
             method: "POST",
             body: JSON.stringify({ name,email, business, password,confirmpassword:confirmPassword }),
             headers: {

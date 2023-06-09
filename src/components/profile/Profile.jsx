@@ -10,7 +10,7 @@ const Profile=()=>{
          getProductDetails();
     },[])
     const getProductDetails=async ()=>{
-       let response=await fetch(`http://localhost:5000/profile/${userId}`)
+       let response=await fetch(`https://dashboardapi.onrender.com/profile/${userId}`)
        let data=await response.json();
        setName(data.name);
        setEmail(data.email);
