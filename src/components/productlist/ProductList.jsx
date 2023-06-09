@@ -4,7 +4,7 @@ import { Link, Navigate, useNavigate } from "react-router-dom";
 const ProductList = () => {
     const [product, setProduct] = useState([]);
     const [loading, setLoading] = useState(true);
-
+    const userId = JSON.parse(localStorage.getItem('user')).id;
     useEffect(() => {
         fetchProduct();
         setLoading(false);
@@ -30,7 +30,7 @@ const ProductList = () => {
 
     const searcHandle = async (e) => {
         let key = e.target.value;
-        if(key){
+        if (key) {
             setLoading(true);
             let result = await fetch(` https://dashboardapi.onrender.com/search/${key}`);
             result = await result.json();
@@ -38,11 +38,13 @@ const ProductList = () => {
             if (result) {
                 setProduct(result);
             }
-        }else{
+        } else {
             fetchProduct();
         }
     };
-
+    const checkId=(p,u)=>{
+      return p===u;
+    }
     return (
         <>
             <div className="product-list">
@@ -64,8 +66,9 @@ const ProductList = () => {
                     <h1>Loading...</h1>
                 ) : (
                     <>
-                        {product.length>0 ? (
+                        {product.length > 0 ? (
                             product.map((p, index) => {
+                               let result=checkId(p.userId,userId);
                                 return (
                                     <ul key={index}>
                                         <li>{index + 1}</li>
@@ -73,22 +76,32 @@ const ProductList = () => {
                                         <li>&#8377; {p.price}</li>
                                         <li>{p.category}</li>
                                         <li>{p.subcategory}</li>
-                                        <li>
-                                            <button
-                                                onClick={() => deleteProduct(p._id)}
-                                                style={{ marginRight: "10px" }}
-                                            >
-                                                Delete
-                                            </button>
-                                            <button>
-                                                <Link
-                                                    to={`/update/${p._id}`}
-                                                    style={{ textDecoration: "none", color: "black" }}
+                                        {
+                                            result?
+                                            <li>
+
+                                                <button
+                                                    onClick={() => deleteProduct(p._id)}
+                                                    style={{ marginRight: "10px" }}
                                                 >
-                                                    Update
-                                                </Link>
-                                            </button>
-                                        </li>
+                                                    Delete
+                                                </button>
+                                                <button>
+                                                    <Link
+                                                        to={`/update/${p._id}`}
+                                                        style={{ textDecoration: "none", color: "black" }}
+                                                    >
+                                                        Update
+                                                    </Link>
+                                                </button>
+                                            </li>
+                                            :
+                                            <li>
+                                                None
+                                            </li>
+                                        }
+                                    
+
                                     </ul>
                                 );
                             })

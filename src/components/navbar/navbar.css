@@ -43,7 +43,9 @@
     .navbar ul li{
         /* border: 2px solid green; */
         list-style:none;
-        margin: 0px 10px;
+        margin: 0px 5px;
+        display: flex;
+        align-items: center;
     }
     .navbar ul li a{
         /* border: 2px solid purple; */
