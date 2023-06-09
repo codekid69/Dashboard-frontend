@@ -1,0 +1,11 @@
+
+.footer{
+    background-color: rgb(54, 175, 212);
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+h2{
+    color:white ;
+    text-align: center;
+}

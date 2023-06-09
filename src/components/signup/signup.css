@@ -1,0 +1,39 @@
+h1{
+    text-align: center;
+}
+.form{
+    /* border: 2px solid black; */
+    width: 50%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+}
+.form input{
+    padding: 10px 10px;
+    border-radius: 10px;
+    border: 1px solid  rgb(54, 175, 212);
+    width: 60%;
+    margin: 10px auto;
+}
+.form button{
+    font-size: 1rem;
+    background-color:  rgb(54, 175, 212);
+    border: none;
+    border-radius: 3px;
+    color: white;
+    width: 20%;
+    margin: 19px auto;
+    padding: 7px 15px;
+}
+@media screen and (max-width: 600px) {
+    .form button{
+        font-size: 0.5rem;
+        background-color:  rgb(54, 175, 212);
+        border: none;
+        border-radius: 3px;
+        color: white;
+        width: 20%;
+        margin: 19px auto;
+        padding: 7px 8px;
+    }   
+}
